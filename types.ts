@@ -13,6 +13,7 @@ export interface Product {
   image: string;
   benefits: string[];
   doshas: Dosha[];
+  availableForms?: ProductForm[]; // Optional: defaults to ['raw', 'powder'] if undefined
 }
 
 export interface CartItem {

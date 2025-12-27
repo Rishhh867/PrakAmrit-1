@@ -13,7 +13,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onRequestQuote, isWishlisted, onToggleWishlist }) => {
-  const [form, setForm] = useState<ProductForm>('raw');
+  // Default to first available form or 'raw'
+  const [form, setForm] = useState<ProductForm>(product.availableForms ? product.availableForms[0] : 'raw');
   const [quantity, setQuantity] = useState<Quantity>('1kg');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [showPriceTable, setShowPriceTable] = useState(false);
@@ -92,6 +93,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
     }
   };
 
+  // Determine which forms are available (default to both if undefined)
+  const forms = product.availableForms || ['raw', 'powder'];
+  const hasMultipleForms = forms.length > 1;
+
   return (
     <div 
       className="glass-card rounded-3xl overflow-hidden flex flex-col h-full transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(27,67,50,0.2)] hover:-translate-y-2 group relative"
@@ -164,28 +169,34 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
             <div className="flex gap-2">
                 <div className="flex-1">
                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Format</p>
-                   <div className="flex bg-gray-100/50 rounded-lg p-1 relative h-9">
-                     <button
-                       onClick={() => setForm('raw')}
-                       className={`flex-1 text-[10px] rounded-md transition-all font-bold z-10 ${
-                         form === 'raw' 
-                           ? 'text-prak-green bg-white shadow-sm' 
-                           : 'text-gray-500 hover:text-prak-green'
-                       }`}
-                     >
-                       Raw
-                     </button>
-                     <button
-                       onClick={() => setForm('powder')}
-                       className={`flex-1 text-[10px] rounded-md transition-all font-bold z-10 ${
-                         form === 'powder' 
-                           ? 'text-prak-green bg-white shadow-sm' 
-                           : 'text-gray-500 hover:text-prak-green'
-                       }`}
-                     >
-                       Pwdr
-                     </button>
-                   </div>
+                   {hasMultipleForms ? (
+                     <div className="flex bg-gray-100/50 rounded-lg p-1 relative h-9">
+                       <button
+                         onClick={() => setForm('raw')}
+                         className={`flex-1 text-[10px] rounded-md transition-all font-bold z-10 ${
+                           form === 'raw' 
+                             ? 'text-prak-green bg-white shadow-sm' 
+                             : 'text-gray-500 hover:text-prak-green'
+                         }`}
+                       >
+                         Raw
+                       </button>
+                       <button
+                         onClick={() => setForm('powder')}
+                         className={`flex-1 text-[10px] rounded-md transition-all font-bold z-10 ${
+                           form === 'powder' 
+                             ? 'text-prak-green bg-white shadow-sm' 
+                             : 'text-gray-500 hover:text-prak-green'
+                         }`}
+                       >
+                         Pwdr
+                       </button>
+                     </div>
+                   ) : (
+                     <div className="bg-gray-100/30 border border-gray-100 rounded-lg h-9 flex items-center justify-center">
+                        <span className="text-[10px] font-bold text-gray-500 uppercase">{form} Only</span>
+                     </div>
+                   )}
                 </div>
 
                 <div className="flex-1">
@@ -225,7 +236,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
                   onClick={() => setShowPriceTable(!showPriceTable)}
                   className="w-full flex items-center justify-between text-[10px] font-bold text-prak-gold hover:text-prak-brown transition-colors uppercase tracking-wider"
                 >
-                   <span>View Bulk Savings</span>
+                   <span>View *Bulk Savings*</span>
                    {showPriceTable ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
                 </button>
                 
@@ -279,13 +290,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
           {/* Price & Action */}
           <div className="flex items-center justify-between pt-1">
             <div className="flex flex-col relative">
-               {/* Powder Surcharge Badge replaced by explicit pricing, but visual cue is nice if form is powder */}
-               {form === 'powder' && (
+               {/* Powder Surcharge Badge */}
+               {form === 'powder' && hasMultipleForms && (
                   <div className="absolute -top-3.5 left-0 bg-orange-100 text-orange-700 text-[9px] font-bold px-2 py-0.5 rounded-full border border-orange-200 shadow-sm whitespace-nowrap z-10">
-                    Powder Form
+                    +15% Processing
                   </div>
                )}
-              <span className={`text-2xl font-serif font-bold text-prak-dark transition-all ${form === 'powder' ? 'mt-1.5' : ''}`}>
+              <span className={`text-2xl font-serif font-bold text-prak-dark transition-all ${form === 'powder' && hasMultipleForms ? 'mt-1.5' : ''}`}>
                  ₹{finalPrice.toLocaleString()}
               </span>
               {isSubscribed ? (
