@@ -1,6 +1,6 @@
 
 /**
- * PrakAmrit Notification Service
+ * Milanà Notification Service
  * 
  * In a production environment, this file would be a Node.js backend controller 
  * interacting with the Twilio API or Meta WhatsApp Business API.
@@ -28,10 +28,10 @@ export const sendWhatsAppNotification = async (payload: WhatsAppPayload): Promis
 
   if (type === 'REQ_RECEIVED') {
     // Template 1: Acknowledgement
-    messageBody = `Namaste ${customerName}! Thank you for choosing PrakAmrit. We have received your request for ${productName || 'Bulk Materials'}. Our team is preparing your *quotation*. You will receive a link here shortly to view and pay.`;
+    messageBody = `Namaste ${customerName}! Thank you for choosing Milanà. We have received your request for ${productName || 'Bulk Materials'}. Our team is preparing your *quotation*. You will receive a link here shortly to view and pay.`;
   } else if (type === 'QUOTE_READY') {
     // Template 2: Action Required
-    messageBody = `Your PrakAmrit *quotation* is ready! Click here to view and complete your payment: ${link || 'https://prakamrit.com/pay/xyz'}`;
+    messageBody = `Your Milanà *quotation* is ready! Click here to view and complete your payment: ${link || 'https://milana.com/pay/xyz'}`;
   }
 
   // --- MOCK API CALL ---
@@ -43,7 +43,7 @@ export const sendWhatsAppNotification = async (payload: WhatsAppPayload): Promis
   
   // Logic: Also trigger an internal email to Archana (Simulated)
   if (type === 'REQ_RECEIVED') {
-    console.log(`[Internal Email] To: archana@irisstar.tech | Subject: New Bulk Inquiry from ${customerName}`);
+    console.log(`[Internal Email] To: archana@milana.com | Subject: New Bulk Inquiry from ${customerName}`);
   }
 
   return true;

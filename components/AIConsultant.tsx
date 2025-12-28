@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, X, Send, Bot, User, Minimize2 } from 'lucide-react';
 import { ChatMessage } from '../types';
@@ -6,7 +7,7 @@ import { getAyurvedicAdvice } from '../services/geminiService';
 const AIConsultant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Namaste! I am your *PrakAmrit Ayurvedic Guide*. How can I help you with *Vata*, *Pitta*, or *Kapha* balancing herbs today?' }
+    { role: 'model', text: 'Namaste! I am your *Milanà Ayurvedic Guide*. How can I help you with *Vata*, *Pitta*, or *Kapha* balancing herbs today?' }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { X, Trash2, CreditCard, CheckCircle, ChevronLeft, ShoppingBag } from 'lucide-react';
 import { CartItem, Order } from '../types';
@@ -49,7 +50,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, cart, onRemoveIt
     saveOrder(newOrder);
     
     // Simulate Email to Owner
-    console.log(`[EMAIL SIMULATION] To: owner@prakamrit.com | Subject: New Order ${newOrder.id}`);
+    console.log(`[EMAIL SIMULATION] To: owner@milana.com | Subject: New Order ${newOrder.id}`);
     console.log(`Body: Customer ${newOrder.customerName} placed an order for ₹${newOrder.totalAmount}.`);
 
     setIsProcessing(false);

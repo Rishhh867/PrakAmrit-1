@@ -5,18 +5,18 @@ import { Product, BlendRecipe } from './types';
 // 250g: 0.25 (Standard)
 // 500g: 0.5 (Standard)
 // 1kg: 1.0 (Standard)
-// 5kg: 15% discount -> 5 * (1 - 0.15) = 4.25
-// 10kg: 25% discount -> 10 * (1 - 0.25) = 7.5
-// 25kg: 30% discount -> 25 * (1 - 0.30) = 17.5
-// 50kg: 35% discount -> 50 * (1 - 0.35) = 32.5
+// 5kg: 5% discount -> 5 * (1 - 0.05) = 4.75
+// 10kg: 10% discount -> 10 * (1 - 0.10) = 9.0
+// 25kg: 15% discount -> 25 * (1 - 0.15) = 21.25
+// 50kg: 20% discount -> 50 * (1 - 0.20) = 40.0
 export const QUANTITY_MULTIPLIERS: Record<string, number> = {
   '250g': 0.25,
   '500g': 0.5,
   '1kg': 1.0,
-  '5kg': 4.25,
-  '10kg': 7.5,
-  '25kg': 17.5,
-  '50kg': 32.5,
+  '5kg': 4.75,
+  '10kg': 9.0,
+  '25kg': 21.25,
+  '50kg': 40.0,
 };
 
 export const POWDER_SURCHARGE_PERCENT = 0.20; // Deprecated in favor of explicit powderPrice, kept for fallback
@@ -198,7 +198,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mineral-rich salt used to enhance digestion and flavor.',
     basePrice: 150,
     powderPrice: calcPowder(150),
-    image: 'https://images.unsplash.com/photo-1626135248722-c36b692451f9?auto=format&fit=crop&q=80',
+    image: 'https://t3.ftcdn.net/jpg/06/46/86/14/240_F_646861407_huiOaUYIm7MsES5y15i5yKUTaUUj9NE5.jpg',
     benefits: ['Digestion', 'Gas Relief', 'Flavor'],
     doshas: ['Vata']
   },
@@ -209,7 +209,7 @@ export const PRODUCTS: Product[] = [
     description: 'Natural antiseptic and water purifier.',
     basePrice: 120,
     powderPrice: calcPowder(120),
-    image: 'https://images.unsplash.com/photo-1610725664338-23c6d86139dd?auto=format&fit=crop&q=80',
+    image: 'https://bhutatva.com/wp-content/uploads/2021/06/fitkari.jpg',
     benefits: ['Antiseptic', 'Water Purification', 'Oral Health'],
     doshas: ['Pitta', 'Kapha']
   },
@@ -220,7 +220,7 @@ export const PRODUCTS: Product[] = [
     description: 'Black pepper, the king of spices, enhances bioavailability.',
     basePrice: 900,
     powderPrice: calcPowder(900),
-    image: 'https://images.unsplash.com/photo-1549488497-2342c3008985?auto=format&fit=crop&q=80',
+    image: 'https://thumbs.dreamstime.com/b/heap-pippali-long-pepper-wooden-cup-isolated-white-background-heap-pippali-long-pepper-wooden-cup-isolated-white-321800815.jpg',
     benefits: ['Bioavailability', 'Digestion', 'Metabolism'],
     doshas: ['Kapha', 'Vata']
   },
@@ -231,7 +231,7 @@ export const PRODUCTS: Product[] = [
     description: 'Long pepper, powerful rejuvenator for the respiratory system.',
     basePrice: 2200,
     powderPrice: calcPowder(2200),
-    image: 'https://images.unsplash.com/photo-1627931753768-45037d40a02d?auto=format&fit=crop&q=80',
+    image: 'https://t4.ftcdn.net/jpg/01/30/13/83/240_F_130138315_9JmrGrIsaz92VC3hZ3xWxhffxrHprOYq.jpg',
     benefits: ['Respiratory', 'Metabolism', 'Detox'],
     doshas: ['Kapha', 'Vata']
   },
@@ -242,7 +242,7 @@ export const PRODUCTS: Product[] = [
     description: 'Cloves, rich in antioxidants and excellent for oral health.',
     basePrice: 1800,
     powderPrice: calcPowder(1800),
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
+    image: 'https://t3.ftcdn.net/jpg/01/77/13/82/240_F_177138278_dWfUr8jDQdb1sXczaBYfJh6gRe2ad0E6.jpg',
     benefits: ['Toothache', 'Digestion', 'Immunity'],
     doshas: ['Kapha', 'Vata']
   },
@@ -253,7 +253,7 @@ export const PRODUCTS: Product[] = [
     description: 'Green cardamom, the queen of spices.',
     basePrice: 3500,
     powderPrice: calcPowder(3500),
-    image: 'https://images.unsplash.com/photo-1599940824399-b87987ced72a?auto=format&fit=crop&q=80',
+    image: 'https://t3.ftcdn.net/jpg/17/10/74/36/240_F_1710743613_taYTuP6f7FedcszgFb7grLOq4ptuAAbe.jpg',
     benefits: ['Digestion', 'Flavor', 'Nausea'],
     doshas: ['Vata', 'Pitta', 'Kapha']
   },
@@ -264,7 +264,7 @@ export const PRODUCTS: Product[] = [
     description: 'True cinnamon bark, supports blood sugar levels.',
     basePrice: 900,
     powderPrice: calcPowder(900),
-    image: 'https://images.unsplash.com/photo-1556687707-1d89868bb71c?auto=format&fit=crop&q=80',
+    image: 'https://t4.ftcdn.net/jpg/18/26/81/63/240_F_1826816361_k7Dlx2PRPRO1IK83mzr2o2R93LsYO6Ez.jpg',
     benefits: ['Blood Sugar', 'Metabolism', 'Heart Health'],
     doshas: ['Vata', 'Kapha']
   },
@@ -275,7 +275,7 @@ export const PRODUCTS: Product[] = [
     description: 'Black cardamom, strong smoky flavor for respiratory health.',
     basePrice: 1800,
     powderPrice: calcPowder(1800),
-    image: 'https://images.unsplash.com/photo-1605666970515-773413998f09?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/484157098/photo/amomum-pods-in-the-wooden-spoon.jpg?s=612x612&w=0&k=20&c=hMbdUrev47NScQiWWLpCRiF9CGCdCi_cSZB1DNs8d_w=',
     benefits: ['Respiratory', 'Digestion', 'Oral Health'],
     doshas: ['Kapha', 'Vata']
   },
@@ -286,7 +286,7 @@ export const PRODUCTS: Product[] = [
     description: 'Indian bay leaf, used for flavoring and insulin sensitivity.',
     basePrice: 300,
     powderPrice: calcPowder(300),
-    image: 'https://images.unsplash.com/photo-1601369324578-8319f398701e?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/2233955491/photo/dried-bay-leaves-on-wooden-background-it-is-also-known-as-tej-pata-cassia-leaves-cinnamomum.jpg?s=612x612&w=0&k=20&c=WX5GeBHv-sP2Ji8xzmWItfrc7K3uxlYEMPDq1leaHSA=',
     benefits: ['Digestion', 'Blood Sugar', 'Flavor'],
     doshas: ['Kapha', 'Vata']
   },
@@ -297,7 +297,7 @@ export const PRODUCTS: Product[] = [
     description: 'Indian Rennet, traditionally used for managing diabetes.',
     basePrice: 800,
     powderPrice: calcPowder(800),
-    image: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/1422781720/photo/organic-dry-solanaceae-or-cheese-flowers-background-texture.jpg?s=612x612&w=0&k=20&c=cPgUJ3bhCQoyuwlRbYnnsl3K_ZoOA_IyBJgs1nyVmik=',
     benefits: ['Blood Sugar', 'Insulin Support', 'Wellness'],
     doshas: ['Kapha', 'Pitta']
   },
@@ -319,7 +319,7 @@ export const PRODUCTS: Product[] = [
     description: 'Sweet Flag root, supports speech and intellect.',
     basePrice: 600,
     powderPrice: calcPowder(600),
-    image: 'https://images.unsplash.com/photo-1606913084603-3e7702b01627?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/529657332/photo/macro-closeup-of-organic-calamus-root.jpg?s=612x612&w=0&k=20&c=fhC5bURNJ-Nc2nIEbWIh3ijAdMKN4ugaAZPeURM9fdE=',
     benefits: ['Speech', 'Memory', 'Nervine Tonic'],
     doshas: ['Vata', 'Kapha']
   },
@@ -330,7 +330,7 @@ export const PRODUCTS: Product[] = [
     description: 'Greater Galangal, excellent for respiratory and rheumatic conditions.',
     basePrice: 700,
     powderPrice: calcPowder(700),
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
+    image: 'https://www.shop.witchwayout.in/cdn/shop/files/DSC_2094.jpg?v=1706438304&width=1946',
     benefits: ['Respiratory', 'Joint Pain', 'Digestion'],
     doshas: ['Kapha', 'Vata']
   },
@@ -341,7 +341,7 @@ export const PRODUCTS: Product[] = [
     description: 'Bamboo manna, excellent source of silica and cooling for the body.',
     basePrice: 2200,
     powderPrice: calcPowder(2200),
-    image: 'https://images.unsplash.com/photo-1632738416719-20327429188a?auto=format&fit=crop&q=80',
+    image: 'https://rukminim2.flixcart.com/image/480/640/kjbr8280-0/spice-masala/k/z/a/500-banslochan-tabasheer-500gm-pouch-nice-grocery-whole-original-imafyxfyganqpzku.jpeg?q=90',
     benefits: ['Bone Health', 'Cooling', 'Strength'],
     doshas: ['Pitta', 'Vata']
   },
@@ -352,7 +352,7 @@ export const PRODUCTS: Product[] = [
     description: 'Supports female reproductive health and skin complexion.',
     basePrice: 600,
     powderPrice: calcPowder(600),
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80',
+    image: 'https://www.jiomart.com/images/product/original/rvs6lnffja/nutrixia-lodhra-powder-lodh-chaal-lodh-pathani-chhal-symplocos-racemosa-100-gms-product-images-orvs6lnffja-p600063417-0-202304011310.png?im=Resize=(1000,1000)',
     benefits: ['Women\'s Health', 'Skin Care', 'Cooling'],
     doshas: ['Pitta', 'Kapha']
   },
@@ -363,7 +363,7 @@ export const PRODUCTS: Product[] = [
     description: 'The queen of herbs, supports reproductive health and vitality.',
     basePrice: 1350,
     powderPrice: calcPowder(1350),
-    image: 'https://images.unsplash.com/photo-1563720935-779836365448?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/974877192/photo/ayurvedic-herb-satavari-asparagus-racemosus-with-its-powder-and-root-in-a-bowl-on-brown-wooden.jpg?s=612x612&w=0&k=20&c=nOGCgpnWMZ_rORB3NcZwn2uBIYLQE1KGtFqkSckMdBo=',
     benefits: ['Reproductive Health', 'Cooling', 'Immunity'],
     doshas: ['Vata', 'Pitta']
   },
@@ -374,7 +374,7 @@ export const PRODUCTS: Product[] = [
     description: 'Dried extract of Giloy, potent immunity booster.',
     basePrice: 4000,
     powderPrice: calcPowder(4000),
-    image: 'https://images.unsplash.com/photo-1546842931-886c185b4c8c?auto=format&fit=crop&q=80',
+    image: 'https://www.greendna.in/cdn/shop/files/giloy-extract_1000x.jpg?v=1748434207',
     benefits: ['Immunity', 'Fever', 'Purification'],
     doshas: ['Pitta', 'Kapha', 'Vata']
   },
@@ -385,18 +385,18 @@ export const PRODUCTS: Product[] = [
     description: 'Coriander seeds, cooling diuretic and digestive.',
     basePrice: 250,
     powderPrice: calcPowder(250),
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/1270516315/photo/coriander-seeds-and-powder-in-wooden-spoon-with-fresh-cilantro-leaves-on-wooden-table.jpg?s=612x612&w=0&k=20&c=siZGlDh0DfPqK-PGxfhcewNzu_FYhUTeb02ukslZIhM=',
     benefits: ['Cooling', 'Digestion', 'Urinary Health'],
     doshas: ['Pitta', 'Kapha']
   },
   {
     id: '34',
-    name: 'Pipla Mul',
+    name: 'Piplamool',
     botanicalName: 'Piper longum root',
     description: 'Root of Long Pepper, good for sleep and digestion.',
     basePrice: 1800,
     powderPrice: calcPowder(1800),
-    image: 'https://images.unsplash.com/photo-1627931753768-45037d40a02d?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/493762352/photo/organic-ganthoda-in-white-bowl.jpg?s=612x612&w=0&k=20&c=CLcM4h5tvhLLqncIbJjueGhJnHDsKyivENfXx_HCGGw=',
     benefits: ['Sleep', 'Digestion', 'Metabolism'],
     doshas: ['Vata', 'Kapha']
   },
@@ -407,7 +407,7 @@ export const PRODUCTS: Product[] = [
     description: 'Dry Ginger powder/root, universal medicine (Vishwabheshaj).',
     basePrice: 800,
     powderPrice: calcPowder(800),
-    image: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/1167521639/photo/dried-ginger-and-ground-ginger-close-up.jpg?s=612x612&w=0&k=20&c=DB6uAHEqRI1_rHCDTDm6xm6HoqCpdhmgjBp6ePwFULM=',
     benefits: ['Digestion', 'Anti-inflammatory', 'Cold Relief'],
     doshas: ['Kapha', 'Vata']
   },
@@ -418,7 +418,7 @@ export const PRODUCTS: Product[] = [
     description: 'Unrefined crystallized sugar, cooling and soothing.',
     basePrice: 180,
     powderPrice: 180,
-    image: 'https://images.unsplash.com/photo-1581351123004-75798061c5a1?auto=format&fit=crop&q=80',
+    image: 'https://img.freepik.com/premium-photo/rock-sugar-wooden_62856-4438.jpg?semt=ais_hybrid&w=740&q=80',
     benefits: ['Energy', 'Cooling', 'Throat Care'],
     doshas: ['Vata', 'Pitta'],
     availableForms: ['raw']
@@ -430,7 +430,7 @@ export const PRODUCTS: Product[] = [
     description: 'Traditional rock sugar with thread, considered purest.',
     basePrice: 220,
     powderPrice: 220,
-    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80',
+    image: 'https://media.istockphoto.com/id/1150968931/photo/white-nabat-with-black-background.jpg?s=612x612&w=0&k=20&c=gjm8ApKSrqnt9dBIm9ryY7I97AOsCJUDG23CDWYN-iY=',
     benefits: ['Purity', 'Taste', 'Cooling'],
     doshas: ['Vata', 'Pitta'],
     availableForms: ['raw']
@@ -442,7 +442,7 @@ export const PRODUCTS: Product[] = [
     description: 'Licorice root, soothing for throat and stomach lining.',
     basePrice: 900,
     powderPrice: calcPowder(900),
-    image: 'https://images.unsplash.com/photo-1606913084603-3e7702b01627?auto=format&fit=crop&q=80',
+    image: 'https://thumbs.dreamstime.com/b/liquorice-stick-ground-herbs-wooden-bowl-textured-surface-147760391.jpg',
     benefits: ['Throat Care', 'Acidity', 'Voice'],
     doshas: ['Vata', 'Pitta']
   },

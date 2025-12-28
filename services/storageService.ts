@@ -1,7 +1,8 @@
+
 import { Order } from '../types';
 
-const ORDERS_KEY = 'prakamrit_orders';
-const WISHLIST_KEY = 'prakamrit_wishlist';
+const ORDERS_KEY = 'milana_orders';
+const WISHLIST_KEY = 'milana_wishlist';
 
 export const getOrders = (): Order[] => {
   const stored = localStorage.getItem(ORDERS_KEY);

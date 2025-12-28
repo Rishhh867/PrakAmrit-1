@@ -13,15 +13,15 @@ export const generateQuotationPDF = (order: Order): void => {
   // --- Header ---
   // *Logo Placeholder* (Text for now)
   doc.setFontSize(24);
-  doc.setTextColor(27, 67, 50); // PrakAmrit Green
+  doc.setTextColor(46, 100, 23); // Milanà Green (#2e6417)
   doc.setFont("helvetica", "bold");
-  doc.text("PrakAmrit Ayurveda", 20, 25);
+  doc.text("Milanà Ayurveda", 20, 25);
 
   doc.setFontSize(10);
   doc.setTextColor(100);
   doc.setFont("helvetica", "normal");
   doc.text("Premium Raw Materials & Extracts", 20, 32);
-  doc.text("contact@prakamrit.com | +91 98765 43210", 20, 37);
+  doc.text("contact@milana.com | +91 98765 43210", 20, 37);
 
   // --- Document Title ---
   doc.setFontSize(16);
@@ -83,7 +83,7 @@ export const generateQuotationPDF = (order: Order): void => {
     head: [tableColumn],
     body: tableRows,
     theme: 'grid',
-    headStyles: { fillColor: [27, 67, 50], textColor: 255 },
+    headStyles: { fillColor: [46, 100, 23], textColor: 255 },
     styles: { fontSize: 10, cellPadding: 3 },
   });
 
@@ -105,5 +105,5 @@ export const generateQuotationPDF = (order: Order): void => {
   doc.text("3. Delivery timeline: 5-7 business days post payment.", 20, finalY + 46);
 
   // --- Save File ---
-  doc.save(`PrakAmrit_Quote_${order.id}.pdf`);
+  doc.save(`Milana_Quote_${order.id}.pdf`);
 };
