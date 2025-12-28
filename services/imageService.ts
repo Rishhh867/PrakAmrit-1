@@ -64,6 +64,7 @@ export const generateAIProductImage = async (product: Product): Promise<string |
 
 /**
  * Applies the *Milanà* watermark to an image using HTML5 Canvas.
+ * Branding: Elegant Minimalist Serif, 40% Opacity.
  */
 export const applyWatermark = (base64Image: string): Promise<string> => {
   return new Promise((resolve, reject) => {
@@ -86,25 +87,36 @@ export const applyWatermark = (base64Image: string): Promise<string> => {
       // 1. Draw Original Image
       ctx.drawImage(img, 0, 0);
 
-      // 2. Configure Watermark Style
-      const fontSize = Math.floor(img.width * 0.05); // Dynamic sizing (5% of width)
-      ctx.font = `bold ${fontSize}px "Montserrat", sans-serif`;
-      ctx.fillStyle = "rgba(255, 255, 255, 0.6)"; // White with 60% opacity
-      ctx.textAlign = "right";
-      ctx.textBaseline = "bottom";
+      // 2. Configure Watermark Style (Milanà Branding)
+      // Elegant Serif Font, Muted White
+      const fontSize = Math.floor(img.width * 0.06); // Slightly larger for impact
+      ctx.font = `italic 600 ${fontSize}px "Playfair Display", serif`;
       
-      // 3. Add Shadow for readability
-      ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+      // 3. Opacity 40%
+      ctx.fillStyle = "rgba(255, 255, 255, 0.4)"; 
+      
+      // Alignment
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      
+      // 4. Subtle Drop Shadow for visibility on light/dark textures
+      ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
       ctx.shadowBlur = 4;
-      ctx.shadowOffsetX = 2;
-      ctx.shadowOffsetY = 2;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
 
-      // 4. Draw Text *Milanà*
-      const padding = Math.floor(img.width * 0.03);
-      ctx.fillText("Milanà", canvas.width - padding, canvas.height - padding);
+      // 5. Draw Text *Milanà* in the center or bottom right?
+      // "Overlay" implies typically center or subtle corner. 
+      // Prompt says "Elegant, minimalist". Center looks too stock-photo-ish.
+      // Bottom Center or Bottom Right is standard luxury.
+      
+      const paddingX = canvas.width - (canvas.width * 0.1);
+      const paddingY = canvas.height - (canvas.height * 0.08);
+
+      ctx.fillText("Milanà", paddingX, paddingY);
 
       // Return new Base64
-      resolve(canvas.toDataURL('image/jpeg', 0.9));
+      resolve(canvas.toDataURL('image/jpeg', 0.95));
     };
 
     img.onerror = (err) => reject(err);

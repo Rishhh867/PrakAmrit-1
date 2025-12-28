@@ -141,7 +141,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
         {/* Confirmation Toast */}
         {showToast && (
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-black/70 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full shadow-xl flex items-center gap-2 animate-fade-in-up pointer-events-none ring-1 ring-white/20">
-            <div className="bg-prak-green rounded-full p-0.5">
+            <div className="bg-milana-green rounded-full p-0.5">
                <Check size={10} strokeWidth={3} className="text-white" />
             </div>
             <span>Added to Wishlist</span>
@@ -153,8 +153,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
         <div className="mb-2">
           <div className="flex justify-between items-start">
              <div>
-                <h3 className="text-2xl font-serif font-bold text-prak-green mb-1 group-hover:text-prak-lightGreen transition-colors">{product.name}</h3>
-                <p className="text-xs text-prak-gold font-bold italic tracking-wider">{product.botanicalName}</p>
+                <h3 className="text-2xl font-serif font-bold text-milana-green mb-1 group-hover:text-milana-lightGreen transition-colors">{product.name}</h3>
+                <p className="text-xs text-milana-gold font-bold italic tracking-wider">{product.botanicalName}</p>
              </div>
           </div>
         </div>
@@ -175,8 +175,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
                          onClick={() => setForm('raw')}
                          className={`flex-1 text-[10px] rounded-md transition-all font-bold z-10 ${
                            form === 'raw' 
-                             ? 'text-prak-green bg-white shadow-sm' 
-                             : 'text-gray-500 hover:text-prak-green'
+                             ? 'text-milana-green bg-white shadow-sm' 
+                             : 'text-gray-500 hover:text-milana-green'
                          }`}
                        >
                          Raw
@@ -185,8 +185,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
                          onClick={() => setForm('powder')}
                          className={`flex-1 text-[10px] rounded-md transition-all font-bold z-10 ${
                            form === 'powder' 
-                             ? 'text-prak-green bg-white shadow-sm' 
-                             : 'text-gray-500 hover:text-prak-green'
+                             ? 'text-milana-green bg-white shadow-sm' 
+                             : 'text-gray-500 hover:text-milana-green'
                          }`}
                        >
                          Pwdr
@@ -205,7 +205,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
                     <select
                       value={quantity}
                       onChange={(e) => setQuantity(e.target.value as Quantity)}
-                      className="w-full appearance-none bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs font-bold text-gray-700 focus:outline-none focus:ring-1 focus:ring-prak-green/30 cursor-pointer h-9"
+                      className="w-full appearance-none bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs font-bold text-gray-700 focus:outline-none focus:ring-1 focus:ring-milana-green/30 cursor-pointer h-9"
                     >
                       {Object.keys(QUANTITY_MULTIPLIERS).map((q) => (
                         <option key={q} value={q}>{q}</option>
@@ -220,12 +220,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
 
             {/* Subscribe & Save Checkbox */}
             <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${isSubscribed ? 'bg-green-50 border-green-200' : 'bg-transparent border-transparent hover:bg-gray-50'}`}>
-               <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSubscribed ? 'bg-prak-green border-prak-green text-white' : 'border-gray-300 bg-white'}`}>
+               <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSubscribed ? 'bg-milana-green border-milana-green text-white' : 'border-gray-300 bg-white'}`}>
                   {isSubscribed && <RefreshCcw size={12} />}
                </div>
                <input type="checkbox" className="hidden" checked={isSubscribed} onChange={() => setIsSubscribed(!isSubscribed)} />
                <div className="flex-1">
-                 <p className={`text-xs font-bold ${isSubscribed ? 'text-prak-green' : 'text-gray-600'}`}>Subscribe & Save 10%</p>
+                 <p className={`text-xs font-bold ${isSubscribed ? 'text-milana-green' : 'text-gray-600'}`}>Subscribe & Save 10%</p>
                  <p className="text-[10px] text-gray-400">Auto-deliver every month</p>
                </div>
             </label>
@@ -234,7 +234,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
             <div className="border-t border-gray-100 pt-2">
                 <button 
                   onClick={() => setShowPriceTable(!showPriceTable)}
-                  className="w-full flex items-center justify-between text-[10px] font-bold text-prak-gold hover:text-prak-brown transition-colors uppercase tracking-wider"
+                  className="w-full flex items-center justify-between text-[10px] font-bold text-milana-gold hover:text-milana-brown transition-colors uppercase tracking-wider"
                 >
                    <span>View *Bulk Savings*</span>
                    {showPriceTable ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
@@ -254,30 +254,30 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
                            {/* 1kg Row */}
                            <tr 
                               onClick={() => setQuantity('1kg')}
-                              className={`cursor-pointer transition-all ${quantity === '1kg' ? 'bg-green-50/80 border-l-4 border-prak-green' : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                              className={`cursor-pointer transition-all ${quantity === '1kg' ? 'bg-green-50/80 border-l-4 border-milana-green' : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                            >
-                              <td className={`px-3 py-2 ${quantity === '1kg' ? 'text-prak-green font-bold' : 'text-gray-600'}`}>1kg</td>
-                              <td className={`px-3 py-2 ${quantity === '1kg' ? 'text-prak-green font-bold' : 'font-medium'}`}>₹{getTablePrice(1)}</td>
+                              <td className={`px-3 py-2 ${quantity === '1kg' ? 'text-milana-green font-bold' : 'text-gray-600'}`}>1kg</td>
+                              <td className={`px-3 py-2 ${quantity === '1kg' ? 'text-milana-green font-bold' : 'font-medium'}`}>₹{getTablePrice(1)}</td>
                               <td className="px-3 py-2 text-gray-400 text-[10px]">-</td>
                            </tr>
 
                            {/* 5kg Row */}
                            <tr 
                               onClick={() => setQuantity('5kg')}
-                              className={`cursor-pointer transition-all ${quantity === '5kg' ? 'bg-green-50/80 border-l-4 border-prak-green' : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                              className={`cursor-pointer transition-all ${quantity === '5kg' ? 'bg-green-50/80 border-l-4 border-milana-green' : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                            >
-                              <td className={`px-3 py-2 ${quantity === '5kg' ? 'text-prak-green font-bold' : 'text-gray-600'}`}>5kg</td>
-                              <td className={`px-3 py-2 ${quantity === '5kg' ? 'text-prak-green font-bold' : 'font-medium'}`}>₹{getTablePrice(4.25)}</td>
+                              <td className={`px-3 py-2 ${quantity === '5kg' ? 'text-milana-green font-bold' : 'text-gray-600'}`}>5kg</td>
+                              <td className={`px-3 py-2 ${quantity === '5kg' ? 'text-milana-green font-bold' : 'font-medium'}`}>₹{getTablePrice(4.25)}</td>
                               <td className="px-3 py-2 text-green-600 font-bold text-[10px]">15%</td>
                            </tr>
 
                            {/* 25kg Row (Bulk) */}
                            <tr 
                               onClick={() => setQuantity('25kg')}
-                              className={`cursor-pointer transition-all ${quantity === '25kg' ? 'bg-green-50/80 border-l-4 border-prak-green' : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
+                              className={`cursor-pointer transition-all ${quantity === '25kg' ? 'bg-green-50/80 border-l-4 border-milana-green' : 'hover:bg-gray-50 border-l-4 border-transparent'}`}
                            >
-                              <td className={`px-3 py-2 ${quantity === '25kg' ? 'text-prak-green font-bold' : 'text-gray-600'}`}>25kg</td>
-                              <td className={`px-3 py-2 ${quantity === '25kg' ? 'text-prak-green font-bold' : 'font-medium'}`}>₹{getTablePrice(17.5)}</td>
+                              <td className={`px-3 py-2 ${quantity === '25kg' ? 'text-milana-green font-bold' : 'text-gray-600'}`}>25kg</td>
+                              <td className={`px-3 py-2 ${quantity === '25kg' ? 'text-milana-green font-bold' : 'font-medium'}`}>₹{getTablePrice(17.5)}</td>
                               <td className="px-3 py-2 text-green-600 font-bold text-[10px]">30%</td>
                            </tr>
                         </tbody>
@@ -296,13 +296,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
                     +15% Processing
                   </div>
                )}
-              <span className={`text-2xl font-serif font-bold text-prak-dark transition-all ${form === 'powder' && hasMultipleForms ? 'mt-1.5' : ''}`}>
+              <span className={`text-2xl font-serif font-bold text-milana-dark transition-all ${form === 'powder' && hasMultipleForms ? 'mt-1.5' : ''}`}>
                  ₹{finalPrice.toLocaleString()}
               </span>
               {isSubscribed ? (
                 <div className="flex items-center gap-1.5">
                   <span className="text-[10px] text-green-600 font-bold uppercase tracking-wider">Recurring</span>
-                  <span className="bg-prak-green text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow-sm animate-fade-in-up">
+                  <span className="bg-milana-green text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow-sm animate-fade-in-up">
                     -10% Applied
                   </span>
                 </div>
@@ -316,8 +316,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart, onReque
               onClick={handleAction}
               className={`group/btn text-white p-3.5 rounded-2xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 ${
                  isBulkOrder 
-                  ? 'bg-prak-brown hover:bg-prak-gold shadow-prak-brown/20' 
-                  : 'bg-prak-dark hover:bg-prak-green shadow-prak-dark/20'
+                  ? 'bg-milana-brown hover:bg-milana-gold shadow-milana-brown/20' 
+                  : 'bg-milana-dark hover:bg-milana-green shadow-milana-dark/20'
               }`}
               title={isBulkOrder ? "Request Bulk Quote" : "Add to Cart"}
             >
