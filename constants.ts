@@ -98,7 +98,7 @@ export const PRODUCTS: Product[] = [
     description: 'Mineral pitch resin known for energy, potency, and rejuvenation.',
     basePrice: 15000,
     powderPrice: 15000,
-    image: 'https://media.istockphoto.com/id/1146174242/photo/charcoal-mask.jpg?s=612x612&w=0&k=20&c=wxAlL-F324HJ2XGPR8v8mIdh_dEyFVPHzGgKsuG8F4Y=',
+    image: 'https://t3.ftcdn.net/jpg/09/00/76/12/240_F_900761266_9ITkLjanZQGMZpvJyopLO7sLkluSBVgy.jpg',
     benefits: ['Energy', 'Anti-aging', 'Vitality'],
     doshas: ['Vata', 'Kapha'],
     availableForms: ['raw']
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     description: 'Sweet fennel seeds, excellent for digestion and mouth freshening.',
     basePrice: 320,
     powderPrice: calcPowder(320),
-    image: 'https://images.unsplash.com/photo-1632738416719-20327429188a?auto=format&fit=crop&q=80',
+    image: 'https://t3.ftcdn.net/jpg/01/98/20/14/240_F_198201493_D4Fx1uMUCCnd1etjO3aXGcWl8Qw8UyOX.jpg',
     benefits: ['Digestion', 'Cooling', 'Fresh Breath'],
     doshas: ['Vata', 'Pitta']
   },

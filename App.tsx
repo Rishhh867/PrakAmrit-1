@@ -312,8 +312,8 @@ function App() {
                   <div className="relative w-full max-w-lg mx-auto aspect-square">
                       <div className="absolute inset-4 bg-gradient-to-tr from-prak-green to-transparent rounded-[2rem] opacity-20 transform rotate-6"></div>
                       <img 
-                        src="https://images.unsplash.com/photo-1606913084603-3e7702b01627?auto=format&fit=crop&q=80&w=800" 
-                        alt="Ayurvedic Ingredients" 
+                        src="https://static.vecteezy.com/system/resources/thumbnails/035/978/179/small/ai-generated-indian-ayurveda-herbal-medicine-free-photo.jpg" 
+                        alt="Authentic Ayurvedic Herbs and Mortar" 
                         className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl z-10 mask-image-gradient"
                       />
                       {/* Floating badge */}
