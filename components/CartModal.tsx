@@ -4,6 +4,7 @@ import { X, Trash2, CreditCard, CheckCircle, ChevronLeft, ShoppingBag, ShieldChe
 import { CartItem, Order } from '../types';
 import { saveOrder } from '../services/storageService';
 import { createPaymentIntent, verifyPaymentSignature, calculateCartSavings } from '../services/paymentService';
+import { sendOrderEmails } from '../services/emailService';
 
 interface CartModalProps {
   isOpen: boolean;
@@ -76,6 +77,11 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, cart, onRemoveIt
         };
 
         saveOrder(newOrder);
+        
+        // --- TRIGGER EMAIL NOTIFICATIONS ---
+        // Fire and forget (in a real app, this might be a webhook response)
+        sendOrderEmails(newOrder).catch(err => console.error("Email simulation failed", err));
+        
         setStep('success');
         onClearCart();
     } else {
